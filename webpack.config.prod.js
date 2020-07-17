@@ -2,23 +2,14 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { merge } = require('webpack-merge');
+const baseConfig = require('./webpack.config.base.js');
 
-module.exports = {
+module.exports = merge(baseConfig, {
   mode: 'production',
-  entry: ['./src/app.js', './src/app.scss'],
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: ''
-  },
   devtool: 'none',
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
       {
         test: /\.(scss)$/,
         use: [{
@@ -37,25 +28,7 @@ module.exports = {
         }, {
           loader: 'sass-loader' // compiles Sass to CSS
         }]
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/,
-        loader: 'url-loader?limit=8000&name=images/[name].[ext]'
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: __dirname + '/src/index.html',
-      filename: 'index.html',
-      inject: 'body'
-    }),
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    })
-  ]
-};
-
+  }
+});
