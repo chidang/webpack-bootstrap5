@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Html template</title>
-</head>
-
+{{> ./partials/head title=htmlWebpackPlugin.options.title }} 
 <body class="d-flex text-center bg-secondary">
     {{> ./partials/header title=htmlWebpackPlugin.options.title }} 
     <form class="form-login">
-        <img src="/node_modules/bootstrap-icons/icons/bootstrap.svg" alt="Bootstrap 5" height="72" width="72" />
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control m-2 ip-2" placeholder="Email address" required autofocus>

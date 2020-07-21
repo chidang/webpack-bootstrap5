@@ -3,14 +3,26 @@ const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+const PagesConfig = require('./configs/pages_config.js');
+
+const handlebars_config = PagesConfig.page_options.map(
+  function (page_option){
+    return new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, page_option.template),
+      filename: page_option.filename,
+      inject: true,
+      minify: false,
+      chunks: page_option.chunks
+    })
+  }
+);
 
 module.exports = {
   mode: 'development',
-  entry: ['./app/src/app.js', './app/src/scss/main.scss'],
+  entry: PagesConfig.entries,
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: ''
+    filename: 'js/[name].[hash].js',
   },
   devtool: 'cheap-module-eval-source-map',
   module: {
@@ -31,6 +43,7 @@ module.exports = {
     ]
   },
   plugins: [
+    ...handlebars_config,
     new webpack.LoaderOptionsPlugin({
       options: {
         handlebarsLoader: {
@@ -40,12 +53,6 @@ module.exports = {
           }
         }
       }
-    }), 
-    new HtmlWebpackPlugin({
-      title: 'My awesome service',
-      template: './app/src/index.hbs',
-      inject: "body",
-      minify: false
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
