@@ -9,6 +9,7 @@
 </head>
 
 <body class="d-flex text-center bg-secondary">
+    {{> ./partials/header title=htmlWebpackPlugin.options.title }} 
     <form class="form-login">
         <img src="/node_modules/bootstrap-icons/icons/bootstrap.svg" alt="Bootstrap 5" height="72" width="72" />
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -24,6 +25,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
     </form>
+    {{> ./partials/social }}
 </body>
 
 </html>
