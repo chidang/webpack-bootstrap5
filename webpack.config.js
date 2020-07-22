@@ -1,13 +1,15 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.config.base.js');
+const openBrowser = require('react-dev-utils/openBrowser');
 
 module.exports = merge(baseConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'app', 'src'),
-    open: true
+    port: 9999,
+    after: () => { openBrowser("http://localhost:9999"); }
   },
   module: {
     rules: [

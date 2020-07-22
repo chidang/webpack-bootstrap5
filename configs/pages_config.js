@@ -2,12 +2,12 @@
 
 // entries
 const _entries = {
-  jmain: './app/src/assets/js/main.js',
-  core: './app/src/assets/scss/main.scss',
-  themedark: './app/src/assets/scss/app-dark.scss',
-  themegreen: './app/src/assets/scss/app-red.scss',
-  jecommerce: './app/src/assets/js/ecommerce.js',
-  jcrm: './app/src/assets/js/crm.js'
+  core_css: './app/src/assets/scss/core.scss',
+  themedark_css: './app/src/assets/scss/app-dark.scss',
+  themegreen_css: './app/src/assets/scss/app-red.scss',
+  ecommerce_js: './app/src/assets/js/ecommerce.js',
+  core_js: './app/src/assets/js/core.js',
+  crm_js: './app/src/assets/js/crm.js'
 };
 
 // _page_options
@@ -17,14 +17,14 @@ const _page_options = [
     template: './app/src/index.hbs',
     inject: "body",
     filename: 'index.html',
-    chunks: ['core', 'jecommerce']
+    chunks: ['ecommerce_js']
   },
   {
     title: 'CRM Dashboard',
     template: './app/src/pages/dashboard/crm.hbs',
     inject: "body",
     filename: 'crm_dashboard.html',
-    chunks: ['jecommerce']
+    chunks: ['crm_js']
   }
 ];
 

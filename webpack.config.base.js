@@ -12,7 +12,7 @@ const handlebars_config = PagesConfig.page_options.map(
       filename: page_option.filename,
       inject: true,
       minify: false,
-      chunks: page_option.chunks
+      chunks: page_option.chunks.concat(['core_js', 'core_css'])
     })
   }
 );
