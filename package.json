@@ -34,6 +34,7 @@
     "webpack-fix-style-only-entries": "^0.5.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "bootstrap": "^5.0.0-alpha1",
     "bootstrap-icons": "^1.0.0-alpha5",
     "imports-loader": "^1.1.0",

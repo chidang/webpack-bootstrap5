@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
-        test: /\.(scss)$/,
+        test: /\.s[ac]ss$/i,
         use: [
         {
           loader: 'style-loader', // inject CSS to page

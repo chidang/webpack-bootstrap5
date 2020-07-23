@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const PagesConfig = require('./configs/pages_config.js');
 
+
 const handlebars_config = PagesConfig.page_options.map(
   function (page_option){
     return new HtmlWebpackPlugin({
