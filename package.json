@@ -36,6 +36,11 @@
   "dependencies": {
     "bootstrap": "^5.0.0-alpha1",
     "bootstrap-icons": "^1.0.0-alpha5",
+    "imports-loader": "^1.1.0",
+    "jquery": "^3.5.1",
+    "jquery-browserify": "^1.8.1",
+    "jquery-mousewheel": "^3.1.13",
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
     "mini-css-extract-plugin": "^0.9.0",
     "popper.js": "^1.16.1",
     "sass": "^1.26.10",

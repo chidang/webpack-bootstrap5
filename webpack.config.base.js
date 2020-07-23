@@ -8,11 +8,12 @@ const PagesConfig = require('./configs/pages_config.js');
 const handlebars_config = PagesConfig.page_options.map(
   function (page_option){
     return new HtmlWebpackPlugin({
+      title: page_option.title,
       template: path.resolve(__dirname, page_option.template),
       filename: page_option.filename,
       inject: true,
       minify: false,
-      chunks: page_option.chunks.concat(['core_js', 'core_css'])
+      chunks: ['core_js'].concat(page_option.chunks)
     })
   }
 );
@@ -58,6 +59,14 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
       minify: false
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
     })
   ]
 };
+
+
+
