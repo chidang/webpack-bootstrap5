@@ -1,7 +1,7 @@
 
 <nav id="sidebar">
     <div class="sidebar-header clearfix">
-        <div class="btn-toggle-navigation-menu float-right">
+        <div class="btn-toggle-left-sidebar float-right">
             <i class="fas fa-bars"></i>
         </div>
         <div class="logo float-left">
@@ -12,11 +12,11 @@
     <div class="sidebar-body ">
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                     <i class="fas fa-home"></i>
-                    Home
+                    <span>Home</span>
                 </a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
+                <ul class="collapse list-unstyled show" id="homeSubmenu">
                     <li>
                         <a href="#">Home 1</a>
                     </li>
@@ -31,11 +31,13 @@
             <li>
                 <a href="#">
                     <i class="fas fa-briefcase"></i>
-                    About
+                    <span>About</span>
                 </a>
+            </li>
+            <li>
                 <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
-                    Pages
+                    <span>Pages</span>
                 </a>
                 <ul class="collapse list-unstyled show" id="pageSubmenu1">
                     <li>
@@ -51,15 +53,11 @@
             </li>
 
             <li>
-                <a href="#">
-                    <i class="fas fa-briefcase"></i>
-                    About
-                </a>
-                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                <a href="#widgets" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
-                    Pages
+                    <span>Widgets</span>
                 </a>
-                <ul class="collapse list-unstyled show" id="pageSubmenu2">
+                <ul class="collapse list-unstyled" id="widgets">
                     <li>
                         <a href="#">Page 1</a>
                     </li>
@@ -73,15 +71,47 @@
             </li>
 
             <li>
-                <a href="#">
-                    <i class="fas fa-briefcase"></i>
-                    About
-                </a>
-                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
-                    Pages
+                    <span>Forms</span>
                 </a>
-                <ul class="collapse list-unstyled show" id="pageSubmenu3">
+                <ul class="collapse list-unstyled" id="forms">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#charts" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    <span>Charts</span>
+                </a>
+                <ul class="collapse list-unstyled" id="charts">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#tables" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    <span>Tables</span>
+                </a>
+                <ul class="collapse list-unstyled" id="tables">
                     <li>
                         <a href="#">Page 1</a>
                     </li>

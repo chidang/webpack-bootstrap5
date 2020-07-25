@@ -1,22 +1,19 @@
 const path = require('path');
+const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 const PagesConfig = require('./configs/pages_config.js');
 
-
-const handlebars_config = PagesConfig.page_options.map(
-  function (page_option){
-    return new HtmlWebpackPlugin({
+const pages_config = PagesConfig.page_options.map(
+  page_option => new HtmlWebpackPlugin({
       title: page_option.title,
       template: path.resolve(__dirname, page_option.template),
       filename: page_option.filename,
       inject: true,
       minify: false,
-      chunks: ['core_js'].concat(page_option.chunks)
+      chunks: ['core_js', 'core_css'].concat(page_option.chunks)
     })
-  }
 );
 
 module.exports = {
@@ -45,7 +42,7 @@ module.exports = {
     ]
   },
   plugins: [
-    ...handlebars_config,
+    ...pages_config,
     new webpack.LoaderOptionsPlugin({
       options: {
         handlebarsLoader: {
@@ -68,6 +65,3 @@ module.exports = {
     })
   ]
 };
-
-
-
