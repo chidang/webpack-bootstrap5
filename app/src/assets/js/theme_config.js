@@ -63,6 +63,7 @@ class ThemeConfig {
   applyConfig() {
     this.config = this.getConfig();
     this.toggleSidebar();
+    this.addLeftSidebarScrollBar();
     if (this.config.isShrinked) this.shrinkSidebar();
   }
 }
