@@ -11,6 +11,7 @@ class ThemeConfig {
   constructor() {
     this.config = {};
     this.body = $('body');
+    this.sidebar = $("#sidebar");
     this.shrinkingSidebarClassName = 'sidebar-shrinking';
   }
 
@@ -20,37 +21,48 @@ class ThemeConfig {
   }
 
   getConfig() {
-    var config = localStorage.getItem('ABCADMIN_CONFIG');
+    let config = localStorage.getItem('ABCADMIN_CONFIG');
     return config ? JSON.parse(config) : DEFAULT_CONFIG;
   }
 
   toggleSidebar() {
-    if(this.body.hasClass(this.shrinkingSidebarClassName)){
-      this.expandSidebar();
-    }else{
-      this.shrinkSidebar();
-    }
+    let self = this;
+    $('.btn-toggle-left-sidebar').on('click', function () {
+      if(self.body.hasClass(self.shrinkingSidebarClassName)){
+        self.expandSidebar();
+      }else{
+        self.shrinkSidebar();
+      }
+    });
   }
 
   shrinkSidebar() {
     this.storeConfig({ isShrinked: true });
     this.body.addClass(this.shrinkingSidebarClassName);
+    this.addLeftSidebarScrollBar();
   }
 
   expandSidebar() {
     this.storeConfig({ isShrinked: false });
     this.body.removeClass(this.shrinkingSidebarClassName);
+    this.addLeftSidebarScrollBar();
   }
 
   addLeftSidebarScrollBar(){
-    $("#sidebar").mCustomScrollbar({
-      theme: "minimal"
-    });
+    if (this.config.isShrinked){
+      if($("#sidebar").hasClass('mCustomScrollbar')){
+        $('#sidebar').mCustomScrollbar("destroy");
+      }
+    }else{
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+    }
   }
 
   applyConfig() {
     this.config = this.getConfig();
-
+    this.toggleSidebar();
     if (this.config.isShrinked) this.shrinkSidebar();
   }
 }

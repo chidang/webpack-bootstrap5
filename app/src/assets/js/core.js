@@ -9,23 +9,13 @@ import { Tooltip, Toast, Popover } from 'bootstrap';
 import ThemeConfig from './theme_config.js';
 
 class AbcAdmin {
-  init(){
+  init() {
     $(document).ready(function () {
-
-      var themeConfig = new ThemeConfig();
-
+      let themeConfig = new ThemeConfig();
       themeConfig.applyConfig();
-
-      themeConfig.addLeftSidebarScrollBar();
-
-      $('.btn-toggle-left-sidebar').on('click', function () {
-        themeConfig.toggleSidebar();
-      });
-
     });
   }
 }
 
 window.abcAdmin = new AbcAdmin();
 window.abcAdmin.init();
-
